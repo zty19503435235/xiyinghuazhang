@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+  <head>
+   
+		<title>Slideshow with Animated Circular </title>
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+	 
+	 <style>
+      body {
+    margin: 0;
+    padding: 0;
+    
+    color: #FFFFFF;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    font-family:'yingbikaishujianti';
+  }
+ @font-face{
+font-family:'yingbikaishujianti';
+src:url(../yingbikaishujianti.TTF);
+}
+   
+  body header {
+   
+    font-family: 'yingbikaishujianti', sans-serif;
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 48px;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 90;
+  }
+  body header .header-inner {
+    padding: 12px 1.5%;
+  }
+   
+  body header .header-inner .logo {
+    position: relative;
+    display: inline;
+    width: auto;
+    height: auto;
+    float: left;
+  }
+  body header .header-inner .logo a {
+    position: relative;
+    display: inline;
+    width: auto;
+    height: auto;
+    color: #FFFFFF;
+    outline: 0px none;
+    outline: 0px;
+    text-decoration: none;
+    transition: all 0.35s ease-in-out;
+    text-transform: uppercase;
+  }
+  body header .header-inner .logo a:hover {
+    color: rgba(255, 255, 255, 0.45);
+  }
+  body header .header-inner .logo a span {
+    font-weight: 700;
+  }
+  body header .header-inner nav {
+    position: relative;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    list-type-style: none;
+    float: right;
+  }
+  body header .header-inner nav li {
+    position: relative;
+    display: inline;
+    margin-left: 16px;
+  }
+ 
+  body header .header-inner nav li a {
+   font-family: 'yingbikaishujianti', sans-serif;
+    position: relative;
+    font-size: 13px;
+    color: #FFFFFF;
+    text-decoration: none;
+    line-height: 24px;
+    transition: all 0.35s ease-in-out;
+  }
+  
+  body header .header-inner nav li a span {
+    position: relative;
+    z-index: 2;
+  }
+  body header .header-inner nav li a:hover {
+    color: rgba(255, 255, 255, 0.45);
+  }
+  body section.slideshow {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    visibility: hidden;
+    overflow: hidden;
+  }
+  body section.slideshow ul.navigation {
+    position: absolute;
+    display: block;
+    width: 640px;
+    height: 640px;
+    padding: 0;
+    margin: 0;
+    left: -230px;
+    top: 50%;
+    margin-top: -320px;
+    z-index: 10;
+  }
+  
+  body section.slideshow ul.navigation li.navigation-item {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    width: 120px;
+    height: 120px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: border 0.6s ease-in-out;
+  }
+  
+  body section.slideshow ul.navigation li.navigation-item .rotate-holder {
+    position: fixed;
+    display: block;
+    width: 0;
+    height: 0;
+    left: -9999px;
+    top: -9999px;
+  }
+  body section.slideshow ul.navigation li.navigation-item .background-holder {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;    
+    background-size: cover;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+  }
+  body section.slideshow ul.navigation li.navigation-item:hover .background-holder {
+    opacity: 0.75;
+  }
+  body section.slideshow ul.navigation li.navigation-item.active .background-holder {
+    opacity: 0;
+    visibility: hidden;
+  }
+  body section.slideshow .detail {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 8;
+  }
+  body section.slideshow .detail .detail-item {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+  body section.slideshow .detail .detail-item .headline {
+    position: absolute;
+    display: block;
+    width: 100%;
+    max-width: calc(100% - 480px);
+    height: 126px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: visible;
+    white-space: nowrap;
+    box-sizing: border-box;
+    z-index: 2;
+  }
+ 
+  body section.slideshow .detail .detail-item .headline .letter {
+    font-family: 'yingbikaishujianti', sans-serif;
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+    visibility: hidden;
+    color: #FFFFFF;
+    font-size: 132px;
+    line-height: 110px;
+    font-weight: 900;
+    font-kerning: none;
+    white-space: nowrap;
+    box-sizing: border-box;
+      text-transform: uppercase;
+  }
+  
+  body section.slideshow .detail .detail-item .background {
+    position: absolute;
+    display: block;
+    width: 100%;
+    width: calc(100% + 100px);
+    height: 100%;
+    height: calc(100% + 100px);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: visible;
+    background-repeat: no-repeat;
+    background-position: center center;     
+    background-size: cover;
+    z-index: 1;
+  }
+  body section.slideshow .detail .detail-item .background::before {
+    content: ""; 
+    background: linear-gradient(to right, black 0%, rgba(0, 0, 0, 0) 90%);   
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+      
+  }
+  body section.slideshow .detail .detail-item.active {
+    opacity: 1;
+    visibility: visible;
+  }
+      
+  body section.slideshow .detail .detail-item .zz{
+	color: #65594a;
+	width:600px;
+	margin-top:0px;
+	margin-left:0px;
+	font-size:21px;
+	font-weight:800;
+	
+	}
+	
+	
+	.container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 2200px;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+.container .card{
+    position: relative;
+    width: 680px;
+    height: 500px;
+   	margin-top:250px;
+	margin-left:800px;
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    background-color: rgba(210,196,181,0.9);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: rgba(255,255,255,0.5) 1px solid;
+    border-left: rgba(255,255,255,0.5) 1px solid;
+    backdrop-filter: blur(5px);
+}
+
+.container .card .content h2{
+    position: absolute;
+    top: -80px;
+    right: 30px;
+    font-size: 6em;
+    color: rgba(255,255,255,0.55);
+    pointer-events: none;
+}
+.container .card .content h3{
+    font-size: 1.8em;
+    color: #81070a;
+}
+.container .card .content p{
+    font-size: 18em;
+    font-weight: 300;
+    color: #000;
+}
+.container .card .content a{
+    position: relative;
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+    margin-top: 15px;
+    font-weight: 500;
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 8px 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+}
+
+
+	
+      </style>
+	 
+	 
+  </head>
+  <body>
+    
+    <section class="slideshow">
+ 
+      <ul class="navigation">
+ 
+        <li class="navigation-item active">
+          <span class="rotate-holder"></span>
+          <span class="background-holder" style="background-image: url(../PIC/艺术流派/liaoning.jpg);"></span>
+        </li>
+        <!-- slideshow:navigation:item END -->
+
+        <!-- slideshow:navigation:item START -->
+        <li class="navigation-item">
+          <span class="rotate-holder"></span>
+          <span class="background-holder" style="background-image: url(../PIC/艺术流派/shanxi.jpg);"></span>
+        </li>
+       
+        <li class="navigation-item">
+          <span class="rotate-holder"></span>
+          <span class="background-holder" style="background-image: url(../PIC/艺术流派/henan.jpg);"></span>
+        </li>
+       
+        <li class="navigation-item">
+          <span class="rotate-holder"></span>
+          <span class="background-holder" style="background-image: url(../PIC/艺术流派/hubei.jpg);"></span>
+        </li>
+      
+        <li class="navigation-item">
+          <span class="rotate-holder"></span>
+          <span class="background-holder" style="background-image: url(../PIC/艺术流派/shanxi2.jpg);"></span>
+        </li>
+      
+        <li class="navigation-item">
+          <span class="rotate-holder"></span>
+          <span class="background-holder" style="background-image: url(../PIC/艺术流派/zhejiang.jpg);"></span>
+        </li>
+        
+        <li class="navigation-item">
+          <span class="rotate-holder"></span>
+          <span class="background-holder" style="background-image: url(../PIC/艺术流派/guangdong.jpg);"></span>
+        </li>
+         
+      
+       
+
+      </ul>
+    <div class="detail">
+       
+        <div class="detail-item active">
+          <div class="headline">辽宁皮影</div>
+          <div class="background" style="background-image: url(../PIC/艺术流派/liaoning.jpg); height: 100vh;">
+          
+          </div>
+          <div class="background" style="background-image: url(../PIC/艺术流派/liaoning.jpg); height: 100vh; background-size: cover; background-position: center; font-style:inherit">
+          <div class="container">
+          <div class="card">
+            <div class="content">
+                
+                <h3>辽宁皮影</h3>
+                 <p class="zz">辽宁皮影中，凌源皮影属滦州皮影派系，传说是在清代由河北省的昌黎、滦县、乐亭等地传入的，已有300多年历史。岫岩皮影是在明清时传入,除此之外，尚有盖州皮影戏、复州皮影戏锦州皮影戏、黑山皮影戏、沈阳关氏皮影、庄河皮影戏、海城皮影戏、鞍山皮影戏、喀左皮影戏、宽甸八河川皮影戏、大荒皮影戏等地方皮影戏，流传面很广。
+辽宁皮影造型与滦州皮影相近。影人以驴皮制成。其中凌源影人的雕刻用料讲究，皮料以小口青槽期的本地毛驴皮为佳，皮板薄厚适中，质坚而柔。雕刻刀法也十分讲究——走刀、推皮、打眼等按先繁后简、先内后外的顺序雕刻，在眉、眼、鼻、嘴和胡须五个部分进行夸张地处理。造型外轮廓以直线概括、出神俊俏，着色对比强烈。
+</p>
+                
+            </div>
+        </div>
+        </div>
+        
+</div>
+        </div>
+        <!-- slideshow:details END -->
+        
+        <!-- slideshow:details START -->
+        <div class="detail-item">
+          <div class="headline">山西皮影 
+          </div>  
+         
+          <div class="background" style="background-image: url(../PIC/艺术流派/shanxi.jpg); color:#FFF">
+       <div class="container">
+          <div class="card">
+            <div class="content">
+                
+                <h3>山西皮影</h3>
+                 <p class="zz">又称南路皮影，以新绛、曲沃、临汾、运城等地为代表。北路皮影，以广灵、灵丘、代县、浑源等地为代表。南路皮影，受到陕西省皮影流派中东路流派的影响，皮影作品形体小巧玲珑，刻工精细，装饰性强，而且色彩简练明快；晋中，又称北路皮影，受北京西派皮影的影响，作品的形体略显肥大，刻工缜密而且精细，色泽明快艳丽。山西皮影有纸窗与纱窗影人之分，纸窗影人造型粗犷、用色单纯洗炼，用红、黑、绿、橘黄等几种纯色渲染，与牛皮本身的透明土黄镶接，纱窗影人显得玲珑剔透、精细严谨一些。人物通常大额头、蒜头鼻、头饰后倾。采用阴雕、阳雕的技法，繁而不乱，简而不疏，刀法犀利，色彩简练，没有受到戏剧化、脸谱化的影响，更彰显出古老艺术的率真气质，很具有汉画像石的韵味，形成了纸窗影人独特的形式美感。纱窗纸人通常人物额大、鼻尖、嘴小而紧靠鼻下，头饰上竖，生的眉上斜，旦的眉下弯。
+</p>
+                
+            </div>
+        </div>
+        </div>  </div>
+          
+        </div>
+        
+        <!-- slideshow:details END -->
+        
+        <!-- slideshow:details START -->
+        <div class="detail-item">
+         
+          <div class="background" style="background-image: url(../PIC/艺术流派/henan.jpg);">
+           <div class="headline">河南皮影</div>   <div class="container">
+          <div class="card">
+            <div class="content">
+                
+                <h3>河南皮影</h3>
+                 <p class="zz">河南皮影戏主要流传在豫西灵宝、豫南桐柏、豫东罗山等地。据传，豫南、豫东皮影戏始于南宋。当时金兵南犯，岳飞率军驻扎桐柏遏阻金兵南下。不少皮影艺人随之进入桐柏。而灵宝皮影则是在明代传入的。
+河南桐柏皮影以黄牛皮制成。其角色分为神、仙、文、武、生、女、卒、首八种行当，有南阳画像石人物的味道。生旦以实底绘色为主，脸颊上有醒目的红点。花脸有较多的镂刻。身段主要用红、黄、蓝、绿、黑五种颜色上色，适当雕镂。上肢较其他地区多了一个关节，即上臂又分两节，这样能够做出夸张的动作。演出时双臂操纵。绘画线条古拙粗犷，装饰图案有着浓厚的山区民间艺术气息。其中，女身发饰、衣饰多为花、草、云、凤图案，男身装束多为龙、虎、水、云图案，平面表现。灵宝皮影带有陕西一带皮影的造型特征。罗山皮影较多有3/4侧面的头部造型，其唇显示3/4的特点更是明显。
+</p>
+                
+            </div>
+        </div>
+        </div>
+          </div>
+        </div>
+        <!-- slideshow:details END -->
+        
+        <!-- slideshow:details START -->
+        <div class="detail-item">
+          <div class="headline">湖北皮影</div>
+          <div class="background" style="background-image: url(../PIC/艺术流派/hubei.jpg);">
+             <div class="container">
+          <div class="card">
+            <div class="content">
+                
+                <h3>湖北皮影</h3>
+                 <p class="zz">湖北皮影主要分成“魏谱”、“门神谱”、“汉口皮影”三大类。“魏谱”皮影分布在鄂北和鄂西北一带。据说在明成化年间，在竹溪丰坝乡和中峰镇就有皮影戏班。“门神谱”皮影主要分布在江汉平原一带，相传于清代嘉庆年间由渔鼓艺人皮思金、皮思银等从四川引入的。“汉口皮影”流行于汉口、云梦、黄冈、黄石一带，始于清中叶。
+“魏谱”皮影属于陕西风格，影人高约一尺左右，雕工较“门神谱”精细，走刀流畅，色彩艳丽。“门神谱”影人形体较大，高约70厘米，牛皮雕刻。早期影人以纸浆打成纸型雕刻后以牛皮制成，影偶相对较厚。脸谱依据京剧等其他人戏的脸谱来制作；手型为五指型；人脸的轮廓非常圆，线条较粗。女性弯月眉，男性剑眉。人物衣饰是不考虑实际效果的平排花纹，也有一定的对称花纹分布。头冠丰富，人须用真须。雕刻拙朴，脸谱属写实风格，是较具古老传统的一种。“汉口皮影”一般影人身高一尺半左右，用牛皮雕刻，头帽分离。
+</p>
+                
+            </div>
+        </div>
+        </div>
+          </div>
+        </div>
+        <!-- slideshow:details END -->
+        
+        <!-- slideshow:details START -->
+        <div class="detail-item">
+          <div class="headline">陕西皮影</div>
+          <div class="background" style="background-image: url(../PIC/艺术流派/shanxi2.jpg);">
+             <div class="container">
+          <div class="card">
+            <div class="content">
+                
+                <h3>陕西皮影</h3>
+                 <p class="zz">陕西省被认为是中国皮影的发源地。顾颉刚在《中国影戏史略及其现状》中认为：“中国影戏之发源地为陕西，自秦汉至隋唐当皆以其最盛。”西安是汉唐的政治中心，皮影的传说发生地在西安。陕西皮影是秦晋皮影的代表。
+陕西皮影大都是根据汉唐的人物碑刻和陶俑的风格来刻制的，形象设计洗炼，面部线条虽然不多，但人物性格卓然可现。
+陕西皮影有东路、西路两种。其中东路皮影形体较大，多刻通天鼻形，构图严谨概括，图案简洁大方。
+陕西皮影女性额高且鼓，鼻直眼长，脸方圆，眉梢、眼角、嘴唇有精细的刻画小嘴眉细入鬓，显得端庄纯真，很有唐代“宫娃”遗风。
+西路皮影风格精巧细腻，形象多豹头深眼。陕西皮影在雕刻上有自己的独到之处人物性格的刻画，也有成熟的程式化表现。
+如眼睛的刻法，就有凤眼、刺眼、圆眼的区别；又如胡子，可分为胖胡子(正面人物)、皮胡子、肉胡子、三胡子等。陕西皮影的设色以红、绿、黄三色为主，以墨色加以柔化。
+
+</p>
+                
+            </div>
+        </div>
+        </div>
+          </div>
+        </div>
+        <!-- slideshow:details END -->
+        
+        <!-- slideshow:details START -->
+        <div class="detail-item">
+          <div class="headline">浙江皮影</div>
+          <div class="background" style="background-image: url(../PIC/艺术流派/zhejiang.jpg);">
+             <div class="container">
+          <div class="card">
+            <div class="content">
+                
+                <h3>浙江皮影</h3>
+                 <p class="zz">南宋时皮影由汴京（开封）传入，后扎根于临安、海宁、嘉兴、桐乡一带，与当地民间艺术、习俗融合发展而成，至今已有800多年的历史了 。这里主要指杭州、海宁一带皮影。现海宁一带有皮影戏班活动。
+海宁皮影将羊皮刮制到水晶般的透明度，然后再涂上各种颜色，耐用美观。人物造型手法，运用单线平涂、重彩绘、石雕镂。将影人从传统的尺余之长，扩放至二尺有余，背面的操纵纤棒，从原来的2根增加到5根之多，使之提高了影人活动的空间并在口、眼、耳等关节部位又巧设机关，使演出效果达到栩栩如生，活灵活现的功能。海宁皮影最有特色的是开戏剧脸谱造型之先河，用类型化原则来塑造人物的忠奸美丑。南宋《梦粱录》曰：“公忠者雕以正貌，奸邪者刻以丑形，盖亦寓褒贬于其间耳。”
+</p>
+                
+            </div>
+        </div>
+        </div>
+          </div> 
+        </div>
+        <!-- slideshow:details END -->
+        
+        <!-- slideshow:details START -->
+        <div class="detail-item">
+          <div class="headline">广东皮影</div>
+          <div class="background" style="background-image: url(../PIC/艺术流派/guangdong.jpg);">
+             <div class="container">
+          <div class="card">
+            <div class="content">
+                
+                <h3>广东皮影</h3>
+                 <p class="zz">据传，广东影戏是由浙江传至闽南、宋末又由闽南移民带到现在的海陆丰地区。明清时影戏流行。清末由于白莲教兴起，清庭诬影戏艺人是“悬灯匪”，影戏受到空前大劫。
+陆丰和闽南的皮影早期造型用羊皮雕刻。至清代末期，潮州兴起纸影戏。《韭庵笔记》说：“潮郡纸影也佳，眉目毕现”。纸影又反向传播到闽南漳州、龙溪地区，所以在民国时期，这里的影偶皆用厚纸片（马粪纸或牛皮纸）雕镂，后以沙牛皮制作。影人高约六寸，五官轮廓分明，四肢比例与真人相仿。旦角两臂下端用布帛制成，虽少关节，动作却能柔和而又多变。旧时影身内部不镂空，直接涂上颜色。海陆丰影戏有“大头坎”造型，他的头颅很大，前额很突出，后脑拖一条发辫，着马褂，作绅士打扮。为广东其他地区所无。影人的身段装饰与潮汕剪纸、影灯等民间艺术结合，富有地方特色。
+</p>
+                
+            </div>
+        </div>
+        </div>
+          </div>
+        </div>
+        <!-- slideshow:details END -->
+        
+        
+        
+      </div>
+      <!-- slideshow:details END -->
+
+    </section>
+    <!-- slideshow END -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4.1.4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/TextPlugin.min.js"></script>
+    <script src="../JS/地域.js"></script>
+<script type="text/javascript" src="./vanilla-tilt.js"></script>
+<script type="text/javascript">
+	VanillaTilt.init(document.querySelectorAll(".card"), {
+		max: 25,
+		speed: 400,
+        glare: false,   // if it should have a "glare" effect
+        "max-glare": 1 
+	});
+	
+</script>
+  </body>
+</html>

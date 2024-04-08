@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Memory Game made with JS</title>
+
+    <link rel="stylesheet" href="../CSS/头茬游戏.css" />
+  </head>
+  <body>
+  <div class="zz">
+    <section class="memory-game">
+      <div class="memory-card" data-framework="aurelia">
+        <img class="front-face" src="../PIC/头茬/1.jpg" alt="Aurelia" />
+        <img class="back-face" src="../PIC/头茬/翻牌封面.jpg" alt="JS Badge" />
+      </div>
+      <div class="memory-card" data-framework="aurelia">
+        <img class="front-face" src="../PIC/头茬/1.jpg" alt="Aurelia" />
+        <img class="back-face" src="../PIC/头茬/翻牌封面.jpg" alt="JS Badge" />
+      </div>
+
+      <div class="memory-card" data-framework="vue">
+        <img class="front-face" src="../PIC/头茬/2.jpg" alt="Vue" />
+        <img class="back-face" src="../PIC/头茬/翻牌封面.jpg" alt="JS Badge" />
+      </div>
+      <div class="memory-card" data-framework="vue">
+        <img class="front-face" src="../PIC/头茬/2.jpg" alt="Vue" />
+        <img class="back-face" src="../PIC/头茬/翻牌封面.jpg" alt="JS Badge" />
+      </div>
+
+      <div class="memory-card" data-framework="angular">
+        <img class="front-face" src="../PIC/头茬/3.jpg" alt="Angular" />
+        <img class="back-face" src="../PIC/头茬/翻牌封面.jpg" alt="JS Badge" />
+      </div>
+      <div class="memory-card" data-framework="angular">
+        <img class="front-face" src="../PIC/头茬/3.jpg" alt="Angular" />
+        <img class="back-face" src="../PIC/头茬/翻牌封面.jpg" alt="JS Badge" />
+      </div>
+
+      <div class="memory-card" data-framework="ember">
+        <img class="front-face" src="../PIC/头茬/4.jpg" alt="Ember" />
+        <img class="back-face" src="../PIC/头茬/翻牌封面.jpg" alt="JS Badge" />
+      </div>
+      <div class="memory-card" data-framework="ember">
+        <img class="front-face" src="../PIC/头茬/4.jpg" alt="Ember" />
+        <img class="back-face" src="../PIC/头茬/翻牌封面.jpg" alt="JS Badge" />
+      </div>
+
+      <div class="memory-card" data-framework="backbone">
+        <img class="front-face" src="../PIC/头茬/5.jpg" alt="Backbone" />
+        <img class="back-face" src="../PIC/头茬/翻牌封面.jpg" alt="JS Badge" />
+      </div>
+      <div class="memory-card" data-framework="backbone">
+        <img class="front-face" src="../PIC/头茬/5.jpg" alt="Backbone" />
+        <img class="back-face" src="../PIC/头茬/翻牌封面.jpg" alt="JS Badge" />
+      </div>
+
+      <div class="memory-card" data-framework="react">
+        <img class="front-face" src="../PIC/头茬/6.jpg" alt="React" />
+        <img class="back-face" src="../PIC/头茬/翻牌封面.jpg" alt="JS Badge" />
+      </div>
+      <div class="memory-card" data-framework="react">
+        <img class="front-face" src="../PIC/头茬/6.jpg" alt="React" />
+        <img class="back-face" src="../PIC/头茬/翻牌封面.jpg" alt="JS Badge" />
+      </div>
+      
+      
+      
+    </section>
+     <div class="container" id="blur">
+<div class="content">
+<a class='aa' href="#" onclick="toggle()"><button>阅<br>读<br>更<br>多</button></a>
+</div>
+</div>
+<div id="popup">
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;“头茬”即皮影的头部，是皮影戏人物形象表现的重中之重。囊括人物的忠、奸、善、恶等形象，以及智、勇、鲁、直等性格特征。由脸谱、发髻和帽饰组成，巧妙地将人物的性别角色、社会角色和伦理角色准确无误地标识出来。<br>头茬又称“梢子”,分为生、旦、净、丑、高盔、翎子、相貂、鬼怪、神头、变脸头等多个类别。头茬越多说明影偶角色越齐全,演出剧目越丰富。<br>
+·官头包：等级制度在中国有着千年的历史，不同的社会时期和不同的社会地位，有着不同的头饰和服饰打扮，从头饰、服饰就可以判断官员的身份、权利和地位。<br>&nbsp;&nbsp;&nbsp;&nbsp;
+·神头包：皮影戏是一种适合演义神话故事的艺术形式，荧幕后面的影偶，变换神速，引人入胜，其中《山海经》和《封神榜》中各种神话人物、动物更是中华民族艺术创作中的奇葩，这些皮影造型风格迥异，精美绝伦，内容丰富，既是皮影戏的载体，也是皮影造型艺术的精神凝聚，具有重要的文化艺术价值。<br>&nbsp;&nbsp;&nbsp;&nbsp;
+·高盔包：皮影戏中有许多打斗场面，其中武将出现的时间较多，各种盔帽反映出故事人物不同的身份地位和等级，加之配上羽毛，更加富有画面美感。<br>&nbsp;&nbsp;&nbsp;&nbsp;
+·旦头包：皮影与戏剧结合相当密切，其中妇女在戏中的地位、角色十分重要，且有严格规定，老旦、武旦、清旦、姑娘、小姐等各有其艺术特点，而且妇女头饰丰富多彩，千变万化，充分体现出妇女爱美，爱打扮的性格和民族特点。<br>&nbsp;&nbsp;&nbsp;&nbsp;
+·场景包：皮影戏场景对于烘托皮影故事起到重要作用，其中房屋、桌椅、工具和兵器等，也是各个时期历史的见证物，树木、花草等道具更是具有特殊的艺术美感和视觉效果，许多皮影道具也能看出科技发展历程。</h2>
+
+</div>
+      
+      </div>
+      
+      
+      
+<script type="text/javascript">
+function toggle(){
+	var blur=document.getElementById('blur');
+	blur.classList.toggle('active')
+	var popup=document.getElementById('popup');
+	popup.classList.toggle('active')
+	
+}
+</script>
+    <script src="../JS/头茬游戏.js"></script>
+    
+  </body>
+</html>

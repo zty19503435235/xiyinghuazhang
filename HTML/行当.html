@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!--引入jquery库文件-->
+<script src="../js/jquery-3.2.1.min.js"></script>
+<!--css样式-->
+<style>
+ @font-face{
+font-family:'yingbikaishujianti';
+src:url(../yingbikaishujianti.TTF);
+}
+
+    /*轮播容器*/
+
+ 
+ * {
+          font-family: "yingbikaishujianti", sans-serif;   
+            padding: 0;
+        }
+
+        body {
+           
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+			overflow:scroll;
+            
+        }
+
+
+        .shell {
+			margin-top:150px;
+            position: relative;
+            min-width: 100px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            /* 设置3d变化 */
+            transform-style: preserve-3d;
+            /* 添加透视效果 */
+            perspective: 1900px;
+        }
+
+        .shell .box {
+            position: relative;
+            width:280px;
+            height: 418px;
+            transition: 0.3s;
+            overflow: hidden;
+            margin: 30px;
+			background:#ecdbc9;
+            transform: rotateY(0deg);
+            transition-delay: .1s;
+            border-radius: 5px;
+            border: #620000 5px solid;
+        }
+
+        /* 当鼠标所有卡片的父元素点shell上时，
+        所有卡片像Y轴翻转20度 */
+        .shell:hover .box {
+            transform: rotateY(20deg);
+        }
+
+        /* 当鼠标悬浮在当前卡片上时，当前卡片的翻转角度为0，
+        并放大一点二五倍，加个阴影 */
+        .shell .box:hover {
+            transform: rotateY(0deg) scale(1.45);
+            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        /* 当鼠标悬浮在卡片上时，
+        当前卡片后面的所有卡片全部都反向翻转负20度 */
+        .shell .box:hover~.box {
+            transform: rotateY(-10deg);
+        }
+
+        .shell .box .images img {
+            width: 100%;
+        }
+
+        .shell .box .content {
+            position: absolute;
+            top: 0;
+            width: 90%;
+            height: 100%;
+            z-index: 999;
+            padding: 15px;
+        }
+
+        .shell .box .content h2 {
+            color: #620000;
+            transition: 0.3s;
+            font-size: 25px;
+            transform: translateY(-100px);
+        }
+
+        .shell .box:hover .content h2 {
+            transform: translateY(-15px);
+        }
+
+        .shell .box .content p {
+            color: #620000;
+            transition: 0.3s;
+            font-size: 14px;
+            transform: translateY(600px);
+            background-color:#ecdbc9;
+        }
+
+        .shell .box:hover .content p {
+            transform: translateY(220px);
+        }
+
+
+
+
+    .label {
+        margin-top: 20px;
+        margin-left: 0;
+        width: 160px;
+        height: 24px;
+        border: 1px solid blue;
+        text-align: left;
+        font-size: 18px;
+        /*设置半圆形边框*/
+        border-bottom-right-radius:12px;
+        border-top-right-radius:12px;
+        background-color: #2aabd2;
+    }
+    .exp {
+        margin-top: 38px;
+        text-align:center;
+    }
+  
+  
+    .buttons {
+        width: 1200px;
+        height: 111px;
+        /*position: relative;*/
+    }
+   
+    .list {
+        width: 4200px;
+        height: 520px;
+        position: absolute;
+    }
+
+    
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>myBanner</title>
+</head>
+<body>
+    <div class="out">
+        <div class="coffeeOut">
+         
+            <div class="container">
+                <div class="list" style="left:-600px">
+                    
+                
+                
+     <div class="shell">
+        <div class="box">
+            <div class="images">
+                <img src="../PIC/首页轮播/dongwu.png">
+            </div>
+            <div class="content">
+                <h2>动物</h2>
+                <p>除了人物，皮影还有各种各样的动物角色，包括狮子、老虎、猴子、鸟类等。演员们用巧妙的手法和技巧，使得皮影在灯光的照射下活灵活现，生动有趣。
+                </p>
+            </div>
+        </div>
+               <div class="box">
+            <div class="images">
+                <img src="../PIC/首页轮播/qiuzi.png">
+            </div>
+            <div class="content">
+                <h2>鞦子</h2>
+                <p>指代皮影戏中的女性角色。她们有的满饰珠翠、明艳动人，有的青衣素服、不施粉黛，展现了不同身份、不同场合下的女性美。
+                </p>
+            </div>
+        </div>  
+                
+        <div class="box">
+            <div class="images">
+                <img src="../PIC/首页轮播/toucha.png">
+            </div>
+            <div class="content">
+                <h2>头茬</h2>
+                <p>皮影人物的头部，包括盔帽称头楂。一般为侧五分面，面部用通天鼻梁，除眉、眼、口外全部镂空，特殊人物也有用实脸彩绘的。
+
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="images">
+                <img src="../PIC/首页轮播/chenjing.png">
+            </div>
+            <div class="content">
+                <h2>衬景</h2>
+                <p>衬景就相当于舞台背景，起着深化剧情，点缀环境的作用。皮影的衬景广泛而不受限制，有天上，地下，水里均可表现，并且极尽夸张又富有表现力。
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="images">
+                <img src="../PIC/首页轮播/chuozi.png">
+            </div>
+            <div class="content">
+                <h2>戳子</h2>
+                <p>身段又称戳子，分为龙袍，蟒袍，官衣，监衣和帅袍等，皮影戏的服装款式纹样受戏曲服饰的影响，身段造型与头部造型的角度是完全不相同的。
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="images">
+                <img src="../PIC/首页轮播/daoju.png">
+            </div>
+            <div class="content">
+                <h2>道具</h2>
+                <p>皮影道具丰富，用来辅助表演使呈现效果更佳。包括有庞杂，车马船轿，飞禽走兽，室内陈设，仪仗，兵器等。
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="images">
+                <img src="../PIC/首页轮播/dongwu.png">
+            </div>
+            <div class="content">
+                <h2>动物</h2>
+                <p>除了人物，皮影还有各种各样的动物角色，包括狮子、老虎、猴子、鸟类等。演员们用巧妙的手法和技巧，使得皮影在灯光的照射下活灵活现，生动有趣。
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="images">
+                <img src="../PIC/首页轮播/qiuzi.png">
+            </div>
+            <div class="content">
+                <h2>鞦子</h2>
+                <p>指代皮影戏中的女性角色。她们有的满饰珠翠、明艳动人，有的青衣素服、不施粉黛，展现了不同身份、不同场合下的女性美。
+                </p>
+            </div>
+        </div>
+         <div class="box">
+            <div class="images">
+                <img src="../PIC/首页轮播/toucha.png">
+            </div>
+            <div class="content">
+                <h2>头茬</h2>
+                <p>皮影人物的头部，包括盔帽称头楂。一般为侧五分面，面部用通天鼻梁，除眉、眼、口外全部镂空，特殊人物也有用实脸彩绘的。
+                </p>
+            </div>
+        </div>
+       <div class="box">
+            <div class="images">
+                <img src="../PIC/首页轮播/chenjing.png">
+            </div>
+            <div class="content">
+                <h2>衬景</h2>
+                <p>衬景就相当于舞台背景，起着深化剧情，点缀环境的作用。皮影的衬景广泛而不受限制，有天上，地下，水里均可表现，并且极尽夸张又富有表现力。
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="images">
+                <img src="../PIC/首页轮播/chuozi.png">
+            </div>
+            <div class="content">
+                <h2>戳子</h2>
+                <p>身段又称戳子，分为龙袍，蟒袍，官衣，监衣和帅袍等，皮影戏的服装款式纹样受戏曲服饰的影响，身段造型与头部造型的角度是完全不相同的。
+                </p>
+            </div>
+        </div>
+          <div class="box">
+            <div class="images">
+                <img src="../PIC/首页轮播/daoju.png">
+            </div>
+            <div class="content">
+                <h2>道具</h2>
+                <p>皮影道具丰富，用来辅助表演使呈现效果更佳。包括有庞杂，车马船轿，飞禽走兽，室内陈设，仪仗，兵器等。
+                </p>
+            </div>
+        </div>
+    </div>
+    
+   
+                <!--一共六位大神-->
+            </div>
+                <a href="#" id="prev" class="arrow"></a>
+                <a href="#" id="next" class="arrow"></a>
+            </div>
+            <div class="buttons">
+                <ul class="slider-nav">
+                    <li class="on" index="1"></li>
+                    <li class="" index="2"></li>
+                    <li class="" index="3"></li>
+                </ul>
+            </div>
+           
+
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var container = document.getElementsByClassName('container').item(0);
+        var list = document.getElementsByClassName('list').item(0);
+        var buttons = document.getElementsByClassName('buttons').item(0).getElementsByTagName('li');
+        var prev = document.getElementById('prev');
+        var next = document.getElementById('next');
+        var index = 1;
+        var animated = false;
+        var timer;
+
+        function showBtn() {
+            for (var i = 0; i < buttons.length; i++) {
+                if (buttons[i].className == 'on') {
+                    buttons[i].className = '';
+                }
+            }
+            buttons[index - 1].className = 'on';
+        }
+
+        function animate(offset) {
+            animated = true;
+            var newL = parseInt(list.style.left) + offset;
+            var time = 600;
+            var interval = 10;
+            var speed = offset / (time / interval);
+
+            function go() {
+                if ((speed < 0 && parseInt(list.style.left) > newL) || (speed > 0 && parseInt(list.style.left) < newL)) {
+                    list.style.left = parseInt(list.style.left) + speed + 'px';
+                    setTimeout(go, interval);
+                } else {
+                    animated = false;
+                    list.style.left = newL + 'px';
+                    if (newL < -1800) {
+                        list.style.left = -0 + 'px';
+                    } else if (newL > -100) {
+                        list.style.left = -0 + 'px';
+                    }
+                }
+            }
+
+            go();
+        }
+
+        function play() {
+            timer = setInterval(function () {
+                next.onclick();
+            }, 3000);
+        }
+
+        function stop() {
+            clearInterval(timer);
+        }
+
+        next.onclick = function () {
+            if (index == 3) {
+                index = 1;
+            } else {
+                index += 1;
+            }
+            if (animated == false) {
+                animate(-300);
+            }
+            showBtn();
+        }
+        prev.onclick = function () {
+            if (index == 1) {
+                index = 5;
+            } else {
+                index -= 1;
+            }
+            if (animated == false) {
+                animate(300);
+            }
+            showBtn();
+        }
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].onclick = function () {
+                var myindex = parseInt(this.getAttribute('index'));
+                var offset = -300 * (myindex - index);
+                if (animated == false) {
+                    animate(offset);
+                }
+                index = myindex;
+                showBtn();
+            }
+        }
+        container.onmouseover = stop;
+        container.onmouseout = play;
+        play();
+    }
+</script>
+</html>

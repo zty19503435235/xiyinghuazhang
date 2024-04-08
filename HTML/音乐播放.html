@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="../CSS/音乐播放.css" />
+    <link
+      rel="stylesheet"
+      href="http://at.alicdn.com/t/font_3311026_vcd5lwzdp8.css"
+    />
+  </head>
+  <body>
+  <div class="container">
+        <div class="card">
+            <div class="content">
+                <h2>01</h2>
+                <h3>唱腔特点</h3>
+                <p>
+                    辽宁唱腔：总体来说，辽宁皮影戏唱腔<abbr title="建平县老河、泵河、黑水、三趟川等地地处辽西，具有辽西的粗犷地域特征。辽南皮影有南派、北派之分，各有千秋。" style="
+                    background-color:#ecdbc9">流派繁多</abbr>。<br>山西唱腔：山西皮影采用“皮腔”的唱腔,并且吸收了<abbr title="碗碗腔，是陕西省地方戏曲剧种之一，又称“灯碗腔”、“阮儿腔”，前者因小铜碗主奏击节和皮影灯而得名；后者因主奏乐器阮咸而得名"style="
+                    background-color:#ecdbc9">“碗碗腔”</abbr>音乐的成分，形成独特的孝义皮碗腔。<br>河南唱腔：河南各地的皮影戏<abbr title="除“官调’、“梅调”外，还有“飞调”、“袍调”、“金钱滚’，“皮滚白”等。罗山皮影与地方小调关系密切，属于以板腔体为主、曲牌体为辅的综合音乐唱腔，多为一板一眼。"style="
+                    background-color:#ecdbc9">唱腔各异</abbr>。<br>湖北唱腔：“魏谱”皮影用竹山地方语音和竹山高腔音演唱，用民间打击乐、管弦乐伴奏，带有秦腔韵味。“门神谱”与当地的<abbr title="沔阳渔鼓有五大音乐唱腔，即：平腔，悲腔、鱼尾腔(又称凤尾腔)、琵琶腔、杂花腔，后经艺人龚本槐发展创造，又有了新平腔、女平腔、数板、联板等二十几种曲牌。"style="
+                    background-color:#ecdbc9">筒子腔（即渔鼓腔）</abbr>结合，形成自己鲜明的艺术特点。<br>陕西唱腔：陕西皮影<abbr title="唱腔有慢板、紧板、滚板、气死人板、撇板、二六板等。“碗碗腔”主要流行在陕西省华山北麓的华县、华阴及大荔等地区。"style="
+                    background-color:#ecdbc9">唱腔</abbr>多样，如“老腔皮影”，流行在陕西潼关、华阴一带，据说自明代就开始流行。<br>浙江唱腔：<abbr title="用笛子、二胡伴奏，用板胡、二胡伴奏为主，其主腔为三五七、文二凡、武二凡、文三凡、武三凡、回龙、叫王龙等"style="
+                    background-color:#ecdbc9">武戏</abbr>和开台戏用乱弹，高亢激越；<abbr title="其声腔有长腔、日出扶桑、深深下拜、上上楼、十八板当头君官等。">文戏</abbr>用高腔，幽美姻雅，一般用于抒情叙述的正本戏。<br>广东唱腔：陆丰影戏尚白字曲，以福佬方言（属闽南语系）演唱，唱腔结构为曲牌连缀体，常常运用滚唱、滚白。<abbr title="曲牌是传统填词制谱用的曲调调名的统称。俗称“牌子”。古代词曲创作，原是“选词配乐”，后来逐渐将其中动听的曲调筛选保留，依照原词及曲调的格律填制新词，被保留的曲调仍多沿用原曲名称。"style="
+                    background-color:#ecdbc9">曲牌</abbr>名称大多失传。
+                </p>
+             
+            </div>
+        </div>
+        </div>
+        
+        
+    <div class="wrapper">
+      <div class="img-area">
+        <img src="" alt="" />
+      </div>
+      <div class="song-details">
+        <p class="name"></p>
+        <p class="artist"></p>
+      </div>
+      <div class="progress-area">
+        <div class="progress-bar">
+          <audio id="main-audio" src=""></audio>
+        </div>
+        <div class="song-timer">
+          <span class="current-time">0:00</span>
+          <span class="max-duration">0:00</span>
+        </div>
+      </div>
+      <div class="controls">
+        <i
+          id="repeat-plist"
+          class="iconfont icon-liebiaoxunhuan"
+          title="repeat"
+        ></i>
+        <i id="prev" class="iconfont icon-shangyishou"></i>
+        <div class="play-pause">
+          <i id="start" class="iconfont icon-bofang play"></i>
+        </div>
+        <i id="next" class="iconfont icon-xiayishou"></i>
+        <i id="more-music" class="iconfont icon-yinleliebiao"></i>
+      </div>
+      <div class="music-list">
+        <div class="header">
+          <div class="row">
+            <i class="iconfont list icon-yinleliebiao"></i>
+            <span>唱腔列表</span>
+          </div>
+          <i id="close" class="iconfont icon-guanbi"></i>
+        </div>
+        <ul></ul>
+      </div>
+    </div>
+
+    <script src="../JS/music-list.js"></script>
+    <script src="../JS/script.js"></script>
+  </body>
+</html>

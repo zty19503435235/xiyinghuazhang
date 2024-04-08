@@ -1,0 +1,1045 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=dynamic-data&random=p28tl5lccz
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+   <script src="echarts.min.js"></script>
+	<script src = "china.js"></script>
+</head>
+<body style="height: 100%; margin: 0;background:url(../PIC/%E8%83%8C%E6%99%AF/byys-bg.jpg)">
+<div>
+  <div id="main4" style="height: 100%;position:absolute;
+	
+	top:20px;"></div>
+  
+  <div id="container2" style="width: 100%;position:absolute;
+	left:0px;
+	top:320px;"></div>
+  
+	<div class="yy" id="main" style="width: 560px;height:560px;position:absolute;
+	left:1160px;
+	top:20px;"></div>
+    
+ 
+    
+     <div id="container4" style="position:absolute;
+	left:590px;
+	top:600px;"></div>
+     <div id="container5" style="position:absolute;
+	left:0px;
+	top:650px;"></div>
+ <div id="container6" style="  width: 100%;position:absolute;
+	
+	left:1160px;
+	top:470px;"></div>
+    
+       <div class="yy" id="main2" style="width: 560px;height:560px;position:absolute;
+	left:580px;
+	top:20px;"></div>
+</div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main2'));
+
+        // 指定图表的配置项和数据
+		var name_title = "皮影戏非物质文化遗产传承与发展情况"
+        var mapName = 'china'
+        var data3 = [
+        //{ name: '湖北', value:4586 },
+		{ name: '湖北', value: 2 },
+		{ name: '浙江', value: 1 },
+		{ name: '广东', value: 1 },
+		{ name: '湖南', value: 2 },
+		{ name: '河南', value: 1 },
+		{ name: '江西', value: 0 },
+		{ name: '安徽', value: 0 },
+		{ name: '重庆', value: 0},
+		{ name: '山东', value: 3 },
+		{ name: '四川', value: 2 },
+		{ name: '江苏', value: 0 },
+		{ name: '上海', value: 0 },
+		{ name: '北京', value: 1 },
+		{ name: '福建', value: 0 },
+		{ name: '广西', value: 0 },
+		{ name: '河北', value: 5 },
+		{ name: '云南', value: 1},
+		{ name: '陕西', value: 4 },
+		{ name: '黑龙江', value: 2 },
+		{ name: '海南', value: 0},
+		{ name: '辽宁', value: 4 },
+		{ name: '山西', value: 1 },
+		{ name: '天津', value: 0 },
+		{ name: '甘肃', value: 2},
+		{ name: '内蒙古', value: 1 },
+		{ name: '宁夏', value: 0},
+		{ name: '吉林', value: 0 },
+		{ name: '新疆', value: 0 },
+		{ name: '贵州', value: 0 },
+		{ name: '香港', value: 0 },
+		{ name: '台湾', value: 0 },
+		{ name: '青海', value: 1 },
+		{ name: '澳门', value: 0 },
+		{ name: '西藏', value: 0 },
+
+        ];
+        
+        var option = {
+            title: {
+                text: name_title,
+                x: 'center',
+                textStyle: {
+                    fontSize: 24
+                },                
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: function(params) {                        
+                        var toolTiphtml = ''
+						if (isNaN(params.value)){
+                        toolTiphtml = params.name + '皮影申遗数量: 0个'
+						}else{
+						toolTiphtml = params.name + '皮影申遗数量: ' + params.value + '个'
+						}
+                        //console.log(toolTiphtml)                        
+                        return toolTiphtml;                   
+                }
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            visualMap: {
+                show: true,
+                left: 'left',
+                top: 'bottom',
+                seriesIndex: [0],
+                type:'piecewise',
+                pieces:[
+                    {min:5, max:5,color: 'rgb(71,27,16)'},
+                    {min:4, max:4, color: 'rgb(82,41,37)'},
+                    {min:3, max:3, color: 'rgb(114,57,52)'},
+                    {min:2, max:2, color: 'rgb(147,73,67)'},
+                    {min:1, max:1, color: 'rgb(172,98,92)'},
+					{min:0, max:0, color: 'rgb(191,133,128)'},
+                ],            
+                textStyle: {
+                    color: '#000000'
+                }
+            },            
+            geo: {
+                show: true,
+                map: mapName,
+                label: {
+                    normal: {
+                        show: true,
+                        fontSize:12,
+                    },
+                    emphasis: {
+                        show: false,
+                    }
+                },
+                roam: false,
+                itemStyle: {
+                    normal: {
+                        areaColor: '#bf8580',
+                        borderColor: '#666666',
+                    },
+                    emphasis: {
+                        areaColor: '#ac957b',
+                    }
+                }
+            },
+            series: [
+                {
+                    type: 'map',
+                    map: mapName,
+                    geoIndex: 0,           
+                    animation: false,
+                    data: data3
+                },
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+<script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+  <script type="text/javascript">
+    var dom = document.getElementById('container6');
+	var myChart = echarts.init(document.getElementById('container6'), null, {
+    width: 560,
+    height:430
+  });
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    const axisData = ['2006', '2008',  '2011',  '2014','2021'];
+const data1 = ['13','14','6','2','2']
+const links = data1.map(function (item, i) {
+  return {
+    source: i,
+    target: i + 1
+  };
+});
+links.pop();
+option = {
+	 color: [
+    '#782018',
+    '#9a2f23',
+    '#857a59',
+    '#b7a27a',
+    '#504930',
+    '#4f1e12',
+    '#948c7d',
+    '#716c64',
+    '#3c3c34',
+    '#c2827b',
+   
+  ],
+  title: {
+    text: '皮影申遗数量年份图',
+	x: 'center',
+                textStyle: {
+                    fontSize: 14
+                },  
+	
+               
+  },
+  tooltip: {},
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: axisData
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      type: 'graph',
+      layout: 'none',
+      coordinateSystem: 'cartesian2d',
+      symbolSize: 40,
+      label: {
+        show: true
+      },
+      edgeSymbol: ['circle', 'arrow'],
+      edgeSymbolSize: [4, 10],
+      data: data1,
+      links: links,
+      lineStyle: {
+        color: '#2f4554'
+      }
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+
+ 
+
+<script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+  
+  <script type="text/javascript">
+    var dom = document.getElementById('container4');
+	var myChart = echarts.init(document.getElementById('container4'), null, {
+    width: 560,
+    height:340
+  });
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+		textStyle: {
+                    fontSize: 8
+                },  
+   color: [
+    '#782018',
+    '#9a2f23',
+    '#857a59',
+    '#b7a27a',
+    '#504930',
+    '#4f1e12',
+    '#948c7d',
+    '#716c64',
+    '#3c3c34',
+    '#c2827b',
+   
+  ],
+  title: {
+   
+  },
+  legend: {},
+  radar: [
+    {
+      indicator: [
+        { text: 'Indicator1' },
+        { text: 'Indicator2' },
+        { text: 'Indicator3' },
+        { text: 'Indicator4' },
+        { text: 'Indicator5' }
+      ],
+      center: ['-125%', '50%'],
+      radius: 100,
+      startAngle: 60,
+      splitNumber: 4,
+      shape: 'circle',
+      axisName: {
+        formatter: '【{value}】',
+        color: '#620000'
+      },
+      splitArea: {
+        areaStyle: {
+          color: ['#620000', '#f5eae9', '#ecdbc9', '#ac957b'],
+          shadowColor: 'rgba(0, 0, 0, 0.2)',
+          shadowBlur: 10
+        }
+      },
+      axisLine: {
+        lineStyle: {
+          color: 'rgba(211, 253, 250, 0.8)'
+        }
+      },
+      splitLine: {
+        lineStyle: {
+          color: 'rgba(211, 253, 250, 0.8)'
+        }
+      }
+    },
+    {textStyle: {
+                    fontSize: 24
+                },  
+      indicator: [
+	  
+        { text: '规格'},
+        { text: '描绘'},
+        { text: '雕刻' },
+        { text: '晕染' },
+        { text: '明艳' },
+		
+       
+      ],
+      center: ['50%', '50%'],
+      radius: 120,
+      axisName: {
+        color: '#fff',
+        backgroundColor: '#666',
+        borderRadius: 3,
+        padding: [8, 5]
+      }
+    }
+  ],
+  series: [
+    {
+      type: 'radar',
+      emphasis: {
+        lineStyle: {
+          width: 4
+        }
+      },
+      data: [
+        {
+          value: [100, 8, 0.4, -80, 2000],
+          
+        },
+        {
+          value: [60, 5, 0.3, -100, 1500],
+          
+          areaStyle: {
+            color: 'rgba(255, 228, 52, 0.6)'
+          }
+        }
+      ]
+    },
+    {
+      type: 'radar',
+      radarIndex: 1,
+      data: [
+        {
+          value: [120, 118, 130, 100, 99, 70],
+         
+          symbol: 'rect',
+          symbolSize: 2,
+          lineStyle: {
+            type: 'dashed'
+          },
+          label: {
+            show: true,
+            formatter: function (params) {
+              return params.value;
+            }
+          }
+        },
+        {
+          value: [100, 93, 50, 90, 70, 60],
+          
+          areaStyle: {
+            color: new echarts.graphic.RadialGradient(0.1, 0.6, 1, [
+              {
+                color: 'rgba(255, 145, 124, 0.1)',
+                offset: 0
+              },
+              {
+                color: 'rgba(255, 145, 124, 0.9)',
+                offset: 1
+              }
+            ])
+          }
+        }
+      ]
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/china.js"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container5');
+	var myChart = echarts.init(document.getElementById('container5'), null, {
+    width: 560,
+    height:300
+  });
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+		 color: [
+    '#782018',
+    '#9a2f23',
+    '#857a59',
+    '#b7a27a',
+    '#504930',
+    '#4f1e12',
+    '#948c7d',
+    '#716c64',
+    '#3c3c34',
+    '#c2827b',
+   
+  ],
+  dataset: [
+    {
+      source: [
+        ['Product', 'Sales', 'Price', 'Year'],
+        ['女性', 6, 32, 2011],
+        ['男性', 43, 14, 2011],
+        
+		
+        ['河北', 9, 30, 2012],
+        ['山西', 2, 19, 2012],
+        ['辽宁', 6, 7, 2012],
+        ['陕西', 8, 27, 2012],
+        ['甘肃', 3, 34, 2012],
+		['黑龙江', 1, 34, 2012],
+		['山东', 2, 34, 2012],
+		['内蒙古', 1, 39, 2012],
+		
+        ['浙江', 4, 28, 2013],
+        ['湖北', 2, 21, 2013],
+        ['广东', 2, 4, 2013],
+        ['湖南', 1, 31, 2013],
+        ['四川', 2, 39, 2013],
+		['云南', 1, 39, 2013],
+		
+      
+      ]
+    },
+    {
+      transform: {
+        type: 'filter',
+        config: { dimension: 'Year', value: 2011 }
+      }
+    },
+    {
+      transform: {
+        type: 'filter',
+        config: { dimension: 'Year', value: 2012 }
+      }
+    },
+    {
+      transform: {
+        type: 'filter',
+        config: { dimension: 'Year', value: 2013 }
+      }
+    }
+  ],
+  series: [
+    {
+      type: 'pie',
+      radius: 50,
+      center: ['50%', '25%'],
+      datasetIndex: 1
+    },
+    {
+      type: 'pie',
+      radius: 50,
+      center: ['50%', '50%'],
+      datasetIndex: 2
+    },
+    {
+      type: 'pie',
+      radius: 50,
+      center: ['50%', '75%'],
+      datasetIndex: 3
+    }
+  ],
+  // Optional. Only for responsive layout:
+  media: [
+    {
+      query: { minAspectRatio: 1 },
+      option: {
+        series: [
+          { center: ['25%', '50%'] },
+          { center: ['50%', '50%'] },
+          { center: ['75%', '50%'] }
+        ]
+      }
+    },
+    {
+      option: {
+        series: [
+          { center: ['50%', '25%'] },
+          { center: ['50%', '50%'] },
+          { center: ['50%', '75%'] }
+        ]
+      }
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+  
+  
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container2');
+	
+	var myChart = echarts.init(document.getElementById('container2'), null, {
+    width: 560,
+    height:280
+  });
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+		 color: [
+    '#782018',
+    '#9a2f23',
+    '#857a59',
+    '#b7a27a',
+    '#504930',
+    '#4f1e12',
+    '#948c7d',
+    '#716c64',
+    '#3c3c34',
+    '#c2827b',
+   
+  ],
+  series: {
+    type: 'sankey',
+    layout: 'none',
+    emphasis: {
+      focus: 'adjacency'
+    },
+	
+    data: [
+      {
+        name: '陕西'
+      },
+      {
+        name: '山西'
+      },
+	  {
+        name: '甘肃'
+      },
+	  {
+        name: '山东'
+      },
+	  {
+        name: '四川'
+      },
+	  {
+        name: '青海'
+      },
+	  {
+        name: '河南'
+      },
+	  {
+        name: '内蒙古'
+      },
+      {
+        name: '2006（第一批）'
+      },
+	  {
+        name: '2014（第四批）'
+      },
+	  {
+        name: '2008（第二批）'
+      },
+	  {
+        name: '2011（第三批）'
+      },
+      {
+        name: '阿房腔'
+      },
+      {
+        name: '华县皮影戏'
+      },
+      {
+        name: '华阴老腔'
+      },
+	  {
+        name: '弦板腔'
+      },
+	  {
+        name: '孝义皮影戏'
+      },
+	  {
+        name: '环县道情皮影戏'
+      },
+	  {
+        name: '通渭影子腔'
+      },
+	  {
+        name: '泰山皮影戏'
+      },
+	  {
+        name: '济南皮影戏'
+      },
+	  {
+        name: '定陶皮影'
+      },
+	  {
+        name: '四川皮影戏'
+      },
+	  {
+        name: '四川阎中皮影戏'
+      },
+	  {
+        name: '河湟皮影戏'
+      },
+	  {
+        name: '罗山皮影戏'
+      },{
+        name: '桐柏皮影戏'
+      },
+	  {
+        name: '巴林左旗皮影戏'
+      },
+	  
+    ],
+    links: [
+      {
+        source: '陕西',
+        target: '2006（第一批）',
+        value: 4
+      },
+      {
+        source: '山西',
+        target: '2006（第一批）',
+        value: 1
+      },
+      {
+        source: '甘肃',
+        target: '2006（第一批）',
+        value:1
+      },
+      {
+        source: '甘肃',
+        target: '2014（第四批）',
+        value: 1
+      },
+      {
+        source: '山东',
+        target: '2008（第二批）',
+        value: 3
+      },
+      {
+        source: '四川',
+        target: '2008（第二批）',
+        value: 2
+      },
+	   {
+        source: '青海',
+        target: '2008（第二批）',
+        value: 1
+      },
+	   {
+        source: '河南',
+        target: '2008（第二批）',
+        value: 1
+      },
+	   {
+        source: '河南',
+        target: '2011（第三批）',
+        value: 1
+      },
+	   {
+        source: '内蒙古',
+        target: '2011（第三批）',
+        value: 1
+      },
+	  {
+        source: '2006（第一批）',
+        target: '阿房腔',
+        value: 1
+      },{
+        source: '2006（第一批）',
+        target: '华县皮影戏',
+        value: 1
+      },
+	  {
+        source: '2006（第一批）',
+        target: '华阴老腔',
+        value: 1
+      },
+	  {
+        source: '2006（第一批）',
+        target: '弦板腔',
+        value: 1
+      },
+	   {
+        source: '2006（第一批）',
+        target: '孝义皮影戏',
+        value: 1
+      },
+	  {
+        source: '2006（第一批）',
+        target: '环县道情皮影戏',
+        value: 1
+      },
+	  {
+        source: '2014（第四批）',
+        target: '通渭影子腔',
+        value: 1
+      },
+	  {
+        source: '2008（第二批）',
+        target: '泰山皮影戏',
+        value: 1
+      },
+	  {
+        source: '2008（第二批）',
+        target: '济南皮影戏',
+        value: 1
+      },
+	  {
+        source: '2008（第二批）',
+        target: '定陶皮影',
+        value: 1
+      },
+	  {
+        source: '2008（第二批）',
+        target: '四川皮影戏',
+        value: 1
+      },
+	  {
+        source: '2008（第二批）',
+        target: '四川阎中皮影戏',
+        value: 1
+      },
+	  {
+        source: '2008（第二批）',
+        target: '河湟皮影戏',
+        value: 1
+      },
+	  {
+        source: '2008（第二批）',
+        target: '罗山皮影戏',
+        value: 1
+      },
+	  {
+        source: '2011（第三批）',
+        target: '桐柏皮影戏',
+        value: 1
+      },
+	  {
+        source: '2011（第三批）',
+        target: '巴林左旗皮影戏',
+        value: 1
+      },
+    ]
+  }
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+  <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+ 		var name_title = "皮影申遗数量年份比例图"
+        // 指定图表的配置项和数据
+        var option1 = {
+			 color: [
+    '#782018',
+    '#9a2f23',
+    '#857a59',
+    '#b7a27a',
+    '#504930',
+    '#4f1e12',
+    '#948c7d',
+    '#716c64',
+    '#3c3c34',
+    '#c2827b',
+   
+  ],
+			  title: {
+                text: name_title,
+                x: 'center',
+                textStyle: {
+                    fontSize:14
+                },                
+            },
+                series : [
+                    {
+						
+                        name: '访问来源',
+                        type: 'pie',
+                        radius: '50%',
+                        data:[
+                            {value:13, name:'2006'},
+                            {value:14, name:'2008'},
+                            {value:6, name:'2011'},
+                            {value:2, name:'2014'},
+							{value:2, name:'2021'}
+                        ],
+                        roseType: 'angle',
+                       
+                    }
+                ]
+            };
+ 
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option1);
+    </script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/china.js"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('main4');
+	var myChart = echarts.init(document.getElementById('main4'), null, {
+    width: 560,
+    height: 280
+  });
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option={ color: [
+    '#782018',
+    '#9a2f23',
+    '#857a59',
+    '#b7a27a',
+    '#504930',
+    '#4f1e12',
+    '#948c7d',
+    '#716c64',
+    '#3c3c34',
+    '#c2827b',
+   
+  ],};
+
+    const categories = (function () {
+  let now = new Date();
+  let res = ['英国','法国','意大利','奥地利','比利时','德国','俄罗斯','荷兰','摩纳哥','葡萄牙','瑞典','瑞士','西班牙','希腊'];
+  let len = 14;
+  
+  return res;
+})();
+const categories2 =  [3,15,10,2,2,11,1,3,1,2,1,1,1,1];
+ 
+const data = ['英国','法国','意大利','奥地利','比利时','德国','俄罗斯','荷兰','摩纳哥','葡萄牙','瑞典','瑞士','西班牙','希腊'];
+const data2 = [3,15,10,2,2,11,1,3,1,2,1,1,1,1];
+option = {
+	 color: [
+    '#782018',
+    '#9a2f23',
+    '#857a59',
+    '#b7a27a',
+    '#504930',
+    '#4f1e12',
+    '#948c7d',
+    '#716c64',
+    '#3c3c34',
+    '#c2827b',
+   
+  ],
+  title: {
+   
+	 x: 'center',
+                textStyle: {
+                    fontSize: 14
+                },   
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross',
+      label: {
+        backgroundColor: '#620000'
+      }
+    }
+  },
+  legend: {},
+ 
+
+  xAxis: [
+    {
+      type: 'category',
+      boundaryGap: true,
+      data: categories
+    },
+    {
+      type: 'category',
+      boundaryGap: true,
+      data: categories2
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value',
+      scale: true,
+      name: '传播次数（单位每次）',
+      max: 30,
+      min: 0,
+      boundaryGap: [0.2, 0.2]
+    },
+    {
+      type: 'value',
+      scale: true,
+      name: '表演场次',
+      max: 20,
+      min: 0,
+      boundaryGap: [0.2, 0.2]
+    }
+  ],
+  series: [
+    {
+      name: 'Dynamic Bar',
+      type: 'bar',
+      xAxisIndex: 1,
+      yAxisIndex: 1,
+      data: data
+    },
+    {
+      name: 'Dynamic Line',
+      type: 'line',
+      data: data2
+    }
+  ]
+};
+app.count = 14;
+setInterval(function () {
+  
+  
+  
+  myChart.setOption({
+    xAxis: [
+      {
+        data: categories
+      },
+      {
+        data: categories2
+      }
+    ],
+    series: [
+      {
+        data: data
+      },
+      {
+        data: data2
+      }
+    ]
+  });
+}, 210);
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

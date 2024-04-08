@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drawing</title>
+  <link rel="stylesheet" href="../CSS/头茬上色.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+  <canvas id="canvas" class="draw" ></canvas>
+  <div id="color-panel" class="color-panel panel">
+    <li data-color="#FF0000" style="--color: #FF0000"></li>
+    <li data-color="#871F78" style="--color: #871F78"></li>
+    <li data-color="#32CD99" style="--color: #32CD99"></li>
+    <li data-color="#00FFFF" style="--color: #00FFFF"></li>
+    <li data-color="#238E23" style="--color: #238E23"></li>
+    <li data-color="#DBDB70" style="--color: #DBDB70"></li>
+    <li data-color="#B87333" style="--color: #B87333"></li>
+    <li data-color="#A8A8A8" style="--color: #A8A8A8"></li>
+    <li data-color="#8FBC8F" style="--color: #8FBC8F"></li>
+    <li data-color="#E6E8FA" style="--color: #E6E8FA"></li>
+    <li data-color="#5C3317" style="--color: #5C3317"></li>
+    <li data-color="#7093DB" style="--color: #7093DB"></li>
+    <li data-color="#D9D919" style="--color: #D9D919"></li>
+    <li data-color="#4F2F4F" style="--color: #4F2F4F"></li>
+    <li data-color="#2F4F2F" style="--color: #2F4F2F"></li>
+    <li data-color="#000000" style="--color: #000000"></li>
+    <li data-color="#FF7F00" style="--color: #FF7F00"></li>
+    <li data-color="#8E2323" style="--color: #8E2323"></li>
+    <li data-color="#5959AB" style="--color: #5959AB"></li>
+    <li data-color="#42426F" style="--color: #42426F"></li>
+  </div>
+  <div class="tools">
+    <li id="color" class="tool-item"  style="--selected-color: #F50C0C">
+      <div class="color"></div>
+    </li>
+    <li id="pencil" class="tool-item active">
+      <i class="ri-pencil-fill"></i>
+    </li>
+    <li id="eraser" class="tool-item">
+      <i class="ri-eraser-fill"></i>
+    </li>
+    <li id="delete" class="tool-item">
+      <i class="ri-delete-bin-fill"></i>
+    </li>
+    <a href="" id="download" download="draw" target="_blank">
+      <li class="tool-item">
+        <i class="ri-download-2-line"></i>
+      </li>
+    </a>
+  </div>
+</body>
+<script src="../JS/头茬上色.js"></script>
+</html>

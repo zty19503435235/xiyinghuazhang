@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>3层图像的滑动对比效果</title>
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="/fonts/css/font-awesome.css">
+    <link rel="stylesheet" href="../CSS/皮影三层对比.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="bottom">
+            <img src="../PIC/制作游戏/2.jpg" alt="">
+        </div>
+        <div class="middle">
+            <img src="../PIC/制作游戏/1.jpg" alt="">
+        </div>
+        <div class="scroller scroller-middle">
+            <i class="fa fa-arrows-h"></i>
+        </div>
+        <div class="top">
+            <img src="../PIC/制作游戏/3.jpg" alt="">
+        </div>
+        <div class="scroller scroller-top">
+            <i class="fa fa-arrows-h"></i>
+        </div> 
+	</div>
+      
+        
+        <a class='aa' href="#" onclick="toggle()"id="blur"><button>阅<br>读<br>更<br>多</button></a>
+        
+        
+        <div id="popup">
+        <h2>画稿、着色、雕刻是皮影制作十分体现功力的步骤，根据不同的人物和服装施行不同的色彩。在皮影表面涂抹颜色，通常使用毛笔等工具进行上色。这一步需要选用适合的颜料和技巧，使颜色鲜艳且不易褪色。</h2>
+        </div>
+    <script src="../JS/皮影三层对比.js"></script>
+    <script type="text/javascript">
+	function toggle(){
+	var blur=document.getElementById('blur');
+	blur.classList.toggle('active')
+	var popup=document.getElementById('popup');
+	popup.classList.toggle('active')
+	
+}
+</script>
+</body>
+
+</html>

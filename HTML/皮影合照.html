@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="generator" content="PSPad editor, www.pspad.com">
+
+<title>Canvas 图片合并与下载</title>
+</head>
+<style>
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face{
+font-family:'yingbikaishujianti';
+src:url(../yingbikaishujianti.TTF);
+}
+body{font-family:'yingbikaishujianti';
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   background:url(../PIC/背景/gdms-bg.jpg);
+    /* 防止选取 */
+    user-select: none;
+}
+
+
+button{position:relative;
+	margin-left:20px;
+	font-family:'yingbikaishujianti';
+	
+    width: 100px;
+    height:50px;
+    background: url("../PIC/按钮底纹竖.png") no-repeat;
+	background-size:100% 100%;
+    border-style: none;
+	color:#620000;
+	font-size:20px;
+}
+input{background: url("../PIC/按钮底纹竖.png") no-repeat;
+	background-size:100% 100%;
+		font-size:20px;
+		width: 100px;
+    height:50px;
+		font-family:'yingbikaishujianti';
+	color:#620000;
+	display: none;
+}
+
+</style>
+<body>
+
+  
+<canvas id="myCanvas" width="640" height="480" style="border:8px solid #620000;"></canvas>
+<button id="backgroundImageInput-button">
+<input type="file" id="backgroundImageInput"  style="font-family:'yingbikaishujianti'; ">上传照片</button>
+<button id="downloadButton">下载图片</button>
+<a href="叠加照片.html">
+    <button id="zty" >拍摄照片</button>
+</a>
+
+
+<script>
+ 
+
+
+var foregroundImagePath = '../PIC/前景.png';
+// 获取canvas元素、文件输入和下载按钮
+var canvas = document.getElementById('myCanvas');
+var backgroundImageInput = document.getElementById('backgroundImageInput');
+var downloadButton = document.getElementById('downloadButton');
+// 加载并绘制前景图片
+var foregroundImage = new Image();
+foregroundImage.src = foregroundImagePath;
+foregroundImage.onload = function() {
+context.drawImage(foregroundImage, 0, 0);
+};
+// 加载背景图片并绘制到canvas
+backgroundImageInput.addEventListener('change', function() {
+var file = this.files[0];
+var reader = new FileReader();
+reader.onload = function(event) {
+var img = new Image();
+img.onload = function() {
+canvas.getContext('2d').drawImage(img, 0, 0);
+};
+img.src = event.target.result;
+};
+reader.readAsDataURL(file);
+});
+
+// 下载按钮的事件监听器
+downloadButton.addEventListener('click', function() {
+var dataURL = canvas.toDataURL('image/png');
+var a = document.createElement('a');
+a.href = dataURL;
+a.download = 'merged-image.png';
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+});
+  let uploadbutton = document.getElementById("backgroundImageInput-button");
+    let uploadInput = document.getElementById("backgroundImageInput");
+    uploadbutton.onclick = function () {
+      uploadInput.click();
+
+    };
+</script>
+ 
+</body>
+
+
+</body>
+
+</html>

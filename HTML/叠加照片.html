@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="generator" content="PSPad editor, www.pspad.com">
+        <title></title>
+    </head>
+    <style>
+*{
+    /* 初始化 */
+background:url(../PIC/背景/byys-bg.jpg)
+}
+	@font-face{
+font-family:'yingbikaishujianti';
+src:url(../yingbikaishujianti.TTF);
+}
+    button{position:relative;
+	margin-left:420px;
+	font-family:'yingbikaishujianti';
+	margin-top:70px;
+    width: 100px;
+    height:50px;
+    background: url("../PIC/按钮底纹竖.png") no-repeat;
+	background-size:100% 100%;
+    border-style: none;
+	color:#620000;
+	font-size:20px;
+}
+.zz{
+	margin-left:200px;
+	margin-top:200px;
+	}
+	.tt{position:absolute;
+		margin-top:71px;
+		margin-left:810px;
+		}
+    </style>
+    <body>
+ <div class="zz">
+    <video id="video" width="640" height="480" autoplay style="border:8px solid #620000;" ></video>
+    
+    <canvas id="canvas" width="640" height="480" style="border:8px solid #620000;"></canvas>
+  
+ </div>
+ 
+ <button onclick="window.location.href='皮影合照.html'" type="button" class="tt">影像连结</button>
+   <button id="snap">拍摄照片</button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button id="save">保存照片</button>
+    <script type="text/javascript">
+ 
+        // Grab elements, create settings, etc.
+        var video = document.getElementById('video');
+ 
+        // Get access to the camera!
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            // Not adding `{ audio: true }` since we only want video now
+            navigator.mediaDevices.getUserMedia({video: true}).then(function (stream) {
+                //video.src = window.URL.createObjectURL(stream);
+                video.srcObject = stream;
+                video.play();
+            });
+        }
+ 
+        /* Legacy code below: getUserMedia 
+         else if(navigator.getUserMedia) { // Standard
+         navigator.getUserMedia({ video: true }, function(stream) {
+         video.src = stream;
+         video.play();
+         }, errBack);
+         } else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+         navigator.webkitGetUserMedia({ video: true }, function(stream){
+         video.src = window.webkitURL.createObjectURL(stream);
+         video.play();
+         }, errBack);
+         } else if(navigator.mozGetUserMedia) { // Mozilla-prefixed
+         navigator.mozGetUserMedia({ video: true }, function(stream){
+         video.srcObject = stream;
+         video.play();
+         }, errBack);
+         }
+         */
+ 
+        // Elements for taking the snapshot
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        var video = document.getElementById('video');
+ 
+        // Trigger photo take
+        document.getElementById("snap").addEventListener("click", function () {
+            context.drawImage(video, 0, 0, 640, 480);
+        });
+ 
+        function saveAsLocalImage() {
+            var myCanvas = document.getElementById("canvas");
+            // here is the most important part because if you dont replace you will get a DOM 18 exception.  
+            // var image = myCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream;Content-Disposition: attachment;filename=foobar.png");  
+            var image = myCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+            // window.location.href = image; // it will save locally  
+            // create temporary link  
+            var tmpLink = document.createElement('a');
+            tmpLink.download = 'image.png'; // set the name of the download file 
+            tmpLink.href = image;
+ 
+            // temporarily add link to body and initiate the download  
+            document.body.appendChild(tmpLink);
+            tmpLink.click();
+            document.body.removeChild(tmpLink);
+        }
+ 
+        // Trigger photo save
+        document.getElementById("save").addEventListener("click", function () {
+            saveAsLocalImage();
+        });
+    </script>
+</body>
+</html>

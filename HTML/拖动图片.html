@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<style>
+  .city {
+            position: absolute;
+            top: 228px;
+            left: 850px;
+        }
+        
+        .d2 {
+            top: 520px;
+            left: 885px;
+        }
+        
+        .d3 {
+            top: 520px;
+            left: 825px;
+        }
+		.d4 {
+            top: 400px;
+            left: 850px;
+        }
+		.d5 {
+            top: 340px;
+            left: 930px;
+        }
+		.d6 {
+            top: 340px;
+            left: 770px;
+        }
+		.d7{
+            top: 440px;
+            left: 980px;
+        }
+		.d8 {
+            top: 440px;
+            left: 720px;
+        }
+        /* 制作蓝色点 */
+        
+        .dotted {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #09f;
+        }
+        /* 制作波纹 */
+        
+        .city div[class^="pulse"] {
+            /* 让盒子水平居中 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            box-shadow: 0 0 12px #009dfd;
+            border-radius: 50%;
+            animation: pulse 1.2s linear infinite;
+        }
+        
+        .city div.pulse2 {
+            animation-delay: 0.4s;
+        }
+        
+        .city div.pulse3 {
+            animation-delay: 0.8s;
+        }
+        
+        @keyframes pulse {
+            0% {}
+            70% {
+                width: 40px;
+                height: 40px;
+                opacity: 1;
+            }
+            100% {
+                width: 70px;
+                height: 70px;
+                opacity: 0;
+            }
+        }
+    </style>
+        
+<body>
+    <div class="map">
+        <div class="city">
+        
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+            
+        </div>
+        <div class="city d2">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+        <div class="city d3">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+         <div class="city d4">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+        <div class="city d5">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+        <div class="city d6">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+         <div class="city d7">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+         <div class="city d8">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+    </div>
+</body>
+<body>
+
+<div class=" runsTwo"
+     style="width: 200px;height: 212px;background-image:url(../PIC/分解/1.png);background-size:100% 100%;position:absolute;right: 30px;left:100px;top: 50px;z-index: 99;border-radius: 13px;cursor: pointer;">
+    <div style="height: 30%;display: flex;align-items: flex-end;justify-content: center;border-top-right-radius: 13px;border-top-left-radius: 13px;color: #FFFFFF"
+         ondblclick="showStatistics()">
+    </div>
+  
+</div>
+<div class=" runsTwo"
+     style="width: 200px;height: 212px;background-image:url(../PIC/分解/2.png);background-size:100% 100%;position:absolute;right: 30px;left:1420px;top: 350px;z-index: 99;border-radius: 13px;cursor: pointer;">
+    <div style="height: 30%;display: flex;align-items: flex-end;justify-content: center;border-top-right-radius: 13px;border-top-left-radius: 13px;color: #FFFFFF"
+         ondblclick="showStatistics()">
+    </div>
+  
+</div>
+<div class=" runsTwo"
+     style="width: 200px;height: 212px;background-image:url(../PIC/分解/3.png);background-size:100% 100%;position:absolute;right: 30px;left:1420px;top: 350px;z-index: 99;border-radius: 13px;cursor: pointer;">
+    <div style="height: 30%;display: flex;align-items: flex-end;justify-content: center;border-top-right-radius: 13px;border-top-left-radius: 13px;color: #FFFFFF"
+         ondblclick="showStatistics()">
+    </div>
+  
+</div>
+<div class=" runsTwo"
+     style="width: 200px;height: 212px;background-image:url(../PIC/分解/4.png);background-size:100% 100%;position:absolute;right: 30px;left:1420px;top: 650px;z-index: 99;border-radius: 13px;cursor: pointer;">
+    <div style="height: 30%;display: flex;align-items: flex-end;justify-content: center;border-top-right-radius: 13px;border-top-left-radius: 13px;color: #FFFFFF"
+         ondblclick="showStatistics()">
+    </div>
+  
+</div>
+<div class=" runsTwo"
+     style="width: 200px;height: 212px;background-image:url(../PIC/分解/7.png);background-size:100% 100%;position:absolute;right: 30px;left:1420px;top: 50px;z-index: 99;border-radius: 13px;cursor: pointer;">
+    <div style="height: 30%;display: flex;align-items: flex-end;justify-content: center;border-top-right-radius: 13px;border-top-left-radius: 13px;color: #FFFFFF"
+         ondblclick="showStatistics()">
+    </div>
+  
+</div>
+<div class=" runsTwo"
+     style="width: 200px;height: 212px;background-image:url(../PIC/分解/5.png);background-size:100% 100%;position:absolute;right: 30px;left:1420px;top: 50px;z-index: 99;border-radius: 13px;cursor: pointer;">
+    <div style="height: 30%;display: flex;align-items: flex-end;justify-content: center;border-top-right-radius: 13px;border-top-left-radius: 13px;color: #FFFFFF"
+         ondblclick="showStatistics()">
+    </div>
+  
+</div>
+<div class=" runsTwo"
+     style="width: 200px;height: 212px;background-image:url(../PIC/分解/8.png);background-size:100% 100%;position:absolute;right: 30px;left:100px;top: 350px;z-index: 99;border-radius: 13px;cursor: pointer;">
+    <div style="height: 30%;display: flex;align-items: flex-end;justify-content: center;border-top-right-radius: 13px;border-top-left-radius: 13px;color: #FFFFFF"
+         ondblclick="showStatistics()">
+    </div>
+  
+</div>
+<div class=" runsTwo"
+     style="width: 200px;height: 212px;background-image:url(../PIC/分解/9.png);background-size:100% 100%;position:absolute;right: 30px;left:100px;top: 350px;z-index: 99;border-radius: 13px;cursor: pointer;">
+    <div style="height: 30%;display: flex;align-items: flex-end;justify-content: center;border-top-right-radius: 13px;border-top-left-radius: 13px;color: #FFFFFF"
+         ondblclick="showStatistics()">
+    </div>
+  
+</div>
+<div class=" runsTwo"
+     style="width: 200px;height: 212px;background-image:url(../PIC/分解/10.png);background-size:100% 100%;position:absolute;right: 30px;left:100px;top: 650px;z-index: 99;border-radius: 13px;cursor: pointer;">
+    <div style="height: 30%;display: flex;align-items: flex-end;justify-content: center;border-top-right-radius: 13px;border-top-left-radius: 13px;color: #FFFFFF"
+         ondblclick="showStatistics()">
+    </div>
+  
+</div>
+<div class=" runsTwo"
+     style="width: 200px;height: 212px;background-image:url(../PIC/分解/6.png);background-size:100% 100%;position:absolute;right: 30px;left:100px;top: 650px;z-index: 99;border-radius: 13px;cursor: pointer;">
+    <div style="height: 30%;display: flex;align-items: flex-end;justify-content: center;border-top-right-radius: 13px;border-top-left-radius: 13px;color: #FFFFFF"
+         ondblclick="showStatistics()">
+    </div>
+  
+</div>
+<div class=" runsTwo"
+     style="width: 200px;height: 212px;background-image:url(../PIC/分解/11.png);background-size:100% 100%;position:absolute;right: 30px;left:100px;top: 650px;z-index: 99;border-radius: 13px;cursor: pointer;">
+    <div style="height: 30%;display: flex;align-items: flex-end;justify-content: center;border-top-right-radius: 13px;border-top-left-radius: 13px;color: #FFFFFF"
+         ondblclick="showStatistics()">
+    </div>
+  
+</div>
+</body>
+    <script>
+        window.onload = function () {
+
+    var drag = document.querySelectorAll('.runsTwo')
+
+    for (var i = 0; i < drag.length; i++) {
+        (function (j) {
+            drag[j].onmousedown = function runs(e) {
+
+
+                var e = e || window.event;
+                var diffX = e.clientX - drag[j].offsetLeft;
+                var diffY = e.clientY - drag[j].offsetTop;
+
+
+                if (typeof drag.setCapture != 'undefined') {
+                    drag.setCapture();
+                }
+                pauseEvent(e);
+
+                function pauseEvent(e) {
+                    if (e.stopPropagation) e.stopPropagation()
+                    if (e.preventDefault) e.preventDefault();
+                    e.cancelBubble = true;
+                    e.returnValue = false;
+                    return false;
+                }
+
+                document.onmousemove = function (e) {
+                    var e = e || window.event;
+                    var left = e.clientX - diffX;
+                    var top = e.clientY - diffY;
+
+                    if (left < 0) {
+                        left = 0;
+                    } else if (left > window.innerWidth - drag[j].offsetWidth) {
+                        left = window.innerWidth - drag[j].offsetWidth;
+                    }
+                    if (top < 0) {
+                        top = 0;
+                    } else if (top > window.innerHeight - drag[j].offsetHeight) {
+                        top = window.innerHeight - drag[j].offsetHeight;
+                    }
+
+                    drag[j].style.left = left + 'px';
+                    drag[j].style.top = top + 'px';
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                    }
+                };
+                document.onmouseup = function (e) { //当鼠标弹起来的时候不再移动
+                    this.onmousemove = null;
+                    this.onmouseup = null; //预防鼠标弹起来后还会循环（即预防鼠标放上去的时候还会移动）
+
+                    //修复低版本ie bug
+                    if (typeof drag[j].releaseCapture != 'undefined') {
+                        drag[j].releaseCapture();
+                    }
+
+                };
+            };
+        })(i)
+
+    }
+
+};
+
+    </script>
+</body>
+</html>

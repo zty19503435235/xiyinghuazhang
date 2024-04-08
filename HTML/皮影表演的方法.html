@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <style>
+        
+    
+body {
+	margin:0;
+	font-family:'yingbikaishujianti', sans-serif;
+}
+@font-face{
+font-family:'yingbikaishujianti';
+src:url(../yingbikaishujianti.TTF);
+}
+ 
+h1 {
+	font-size:70px;
+	color:#620000;
+	font-weight:700;
+	margin-top:125px;	 
+	text-align:center;
+	text-transform:uppercase;
+	letter-spacing:4px;
+	line-height:23px;
+}
+
+/* --- Start progress bar --- */
+
+.process-wrapper {
+	margin:auto;
+	max-width:1080px;
+}
+
+#progress-bar-container {
+	position:relative;
+	width:90%;
+	margin:auto;
+	height:100px;
+	margin-top:65px;
+}
+
+#progress-bar-container ul {
+	padding:0;
+	margin:0;
+	padding-top:15px;
+	z-index:9999;
+	position:absolute;
+	width:100%;
+	margin-top:-40px
+}
+
+#progress-bar-container li:before {
+	content:" ";
+	display:block;
+	margin:auto;
+	width:30px;
+	height:30px;
+	border-radius:50%;
+	border:solid 2px #aaa;
+	transition:all ease 0.3s;
+     
+}
+
+#progress-bar-container li.active:before, #progress-bar-container li:hover:before {
+	border:solid 2px #fff;
+       	 
+	background: linear-gradient(to right, #620000 0%,#7e6c52 100%); 
+}
+
+#progress-bar-container li {
+	list-style:none;
+	float:left;
+	width:20%;
+	text-align:center;
+	color:#7e6c52;
+	text-transform:uppercase;
+	font-size:11px;
+	cursor:pointer;
+	font-weight:700;
+	transition:all ease 0.2s;
+	vertical-align:bottom;
+	height:60px;
+	position:relative;
+}
+
+#progress-bar-container li .step-inner {
+	position:absolute;
+	width:100%;
+	bottom:0;
+    font-size: 24px;
+}
+
+#progress-bar-container li.active, #progress-bar-container li:hover {
+	color:#620000;
+}
+
+#progress-bar-container li:after {
+	content:" ";
+	display:block;
+	width:6px;
+	height:6px;
+	background:#620000;
+	margin:auto;
+	border:solid 7px #620000;
+	border-radius:50%;
+	margin-top:40px;
+	box-shadow:0 2px 13px -1px rgba(0,0,0,0.3);
+	transition:all ease 0.2s;
+     
+}
+
+#progress-bar-container li:hover:after {
+	background:#7e6c52;
+}
+
+#progress-bar-container li.active:after {
+	background:#620000;
+}
+
+#progress-bar-container #line {
+	width:80%;
+	margin:auto;
+	background: #ecdbc9;
+	height:6px;
+	position:absolute;
+	left:10%;
+	top:57px;
+	z-index:1;
+	border-radius:50px;
+	transition:all ease 0.9s;
+}
+
+#progress-bar-container #line-progress {
+	content:" ";
+	width:3%;
+	height:100%;
+	background: #620000;	 
+	background: linear-gradient(to right, #620000 0%,#7e6c52 100%); 
+	position:absolute;
+	z-index:2;
+	border-radius:50px;
+	transition:all ease 0.9s;
+}
+
+#progress-content-section {
+	width:90%;
+	margin: auto;
+	background: #ecdbc9;
+	border-radius: 4px;
+}
+
+#progress-content-section .section-content {
+	padding:30px 40px;
+	text-align:center;
+	color:#7e6c52;
+}
+
+#progress-content-section .section-content h2 {
+	font-size:37px;
+	text-transform:uppercase;
+	color:#620000;
+	letter-spacing:1px;
+}
+
+#progress-content-section .section-content p {
+	font-size:20px;
+	line-height:1.8em;
+	color:#7e6c52;
+}
+
+#progress-content-section .section-content {
+	display:none;
+	animation: FadeInUp 700ms ease 1;
+	animation-fill-mode:forwards;
+	transform:translateY(15px);
+	opacity:0;
+}
+
+#progress-content-section .section-content.active {
+	display:block;
+}
+
+@keyframes FadeInUp {
+	0% {
+		transform:translateY(15px);
+		opacity:0;
+	}
+	
+	100% {
+		transform:translateY(0px);
+		opacity:1;
+	}
+}
+
+ 
+    </style>
+</head>
+<body>
+ 
+
+<h1>皮影表演的方法</h1>
+<br> 
+<div class="process-wrapper">
+<div id="progress-bar-container">
+	<ul>
+		<li class="step step01 active"><div class="step-inner">搭台</div></li>
+		<li class="step step02"><div class="step-inner">演出程序</div></li>
+		<li class="step step03"><div class="step-inner">演员安排</div></li>
+		<li class="step step04"><div class="step-inner">操作特技</div></li>
+		<li class="step step05"><div class="step-inner">演唱形式</div></li>
+	</ul>
+	
+	<div id="line">
+		<div id="line-progress"></div>
+	</div>
+</div>
+
+<div id="progress-content-section">
+	<div class="section-content discovery active">
+		<h2>搭台</h2>
+		<p>影像投射的屏幕，行话称“亮子”，其实就是一块白色影布，大多用白布制作，南方也有用桃花纸制成，大约一米高，两米多长，两边用木框支起来，顶端用绳子和顶棚支起。现在多用绢制成。幕后放置条桌，置放道具之用。桌边准备一些常用的辅助道具。传统中，影灯的灯用的是清油灯。比一般家用的略大，五根灯芯点燃。光从上射下，为了让光线更匀，在灯外缠了白绢。现在多用日光灯。边上是锣鼓家伙，就像一个微型的乐队。</p>
+	</div>
+	
+	<div class="section-content strategy">
+		<h2>演出顺序</h2>
+		<p>天黑后，影戏演出开始。一般是先“打通”， 告知观众演出要开始了，打通的同时要“摆台”，根据剧情需要挑选、装置影人，并在亮子上摆出一些影偶，或是敬神的香炉，或是喜庆的布景，或是具有驱邪功能的神灵影人；一切准备就绪，班主或主要演员焚香请神；接下来演出“扮仙戏”（或叫“贺戏”）、正戏；正戏演完后送神；送神结束，有的还应观众之请，演一段“送戏”（或叫“加戏”、“杂戏”）。</p>
+	</div>
+	
+	<div class="section-content creative">
+		<h2>演员安排</h2>
+		<p>总得来说，皮影戏班的演员主要不出三类人：一类是主唱的，主要负责唱念、口技，另外负责打击乐的操作；二是负责掌管皮影全部人马活动及景物道具布置，有时兼管帮腔，行称“掌签子”；三是掌管操作乐器的，如二弦、铙钹、唢呐、大号，有时帮腔。这样整个皮影戏才能开演。
+像清代的潮州皮影，往往就是一个弄影者兼任编、导、演及配乐等工作。山东枣庄、莱芜、湖南郴州、衡阳、湖北云梦等地，演出都是两人进行。其中一人操纵影人，也要唱戏中的所有角色的唱词，另一人掌管台上的乐器伴奏，有时还需为前台帮帮腔。
+湖北天门市、湖南平江县、望城县、辽宁岫岩等地都是三人或四人班。分工更细一些。陕西皮影戏叫“五人忙”，各有称呼。包括“前声”，主唱生旦净丑各行角色；“签手儿”，也叫“灯底下”或“挑签儿”，在亮子后面耍皮影，重要性仅次于前声；“上档”负责月琴、号和唢呐等；“下档”拉板胡兼其它乐器，表演时配合签手儿；“后曹”也叫“打后台”，掌管打击乐和敲“碗碗儿”。浙江海宁皮影也叫“五人忙”，亦是五人班。更大型的皮影剧团人可以更多一些，川北皮影艺人有句话：“七紧八忙九合手。”</p>
+	</div>
+	
+	<div class="section-content production">
+		<h2>操作特技</h2>
+		<p>不同的人物，体态语都有不同的要求和显著的区别。在长期的艺术实践中，皮影艺人总结出一套艺诀。手的拿捏、手势的轻重与动作的虚实中都有讲究。远虚近实
+即靠近屏幕形象清晰，远离屏幕形象模糊，艺人们靠这种视觉常识来营造戏剧的氛围。如表现恶龙盘旋时，将龙的位置离屏幕远一些，这样看起来，龙的形象模糊而膨大，仿佛遮盖整个屏幕，而近前的人物则显得渺小无助。
+烟雾弥漫
+往亮子上喷烟，造成阴云密布或狼烟四起的气氛；而用一细管在皮影嵌在皮影人的烟锅处对着烟管吹烟，宛若抽烟一样。
+喷火
+口含烧酒松香，猛喷向亮子需出现火焰处，即刻点火，便有逼真的烈火熊熊的效果。
+张口合眼
+把脸部分为两片，其中一片为下颌嘴唇并连接着上眼帘，两片重合缀结，活动时，可产生张口说话、睁眼闭眼的效果。
+水波振荡
+艺人提影轻扣屏幕，则马上有波光荡漾之感。1955年木偶皮影汇演，浙江的皮影《闹龙宫》，用蓝色灯光表现水底，同时用小马达缠上蓝色透明条靠近屏幕，马达转动时观众看到的画面就是一个奇妙的水底世界。
+斩首变脸
+因为头茬与身体中间可以分开。表现时急速把头茬拉下， 同时将固体色浆砸到幕上，鲜血喷涌而出。同样，头茬快速撤换可以造成“变脸”。</p>
+	</div>
+	
+	<div class="section-content analysis">
+		<h2>演唱形式</h2>
+		<p>在说唱表现上，宋代是用六言或七言的诗赞词；明代滦州影戏是用木鱼念经式的宣卷，后加上弋阳腔（高腔），到清初雍正年间改用笛子伴奏，腔调上结合了昆腔的成分；清中叶之后，所用的乐器已有锣、鼓、钹、横笛、手板、唢吶、月琴、四股弦子、南弦子、响盏，而以南弦子为主要乐器。各地影戏唱腔亦不相同，山东影戏唱大鼓与坠子；陜西分成道情、汉调、秦腔与其它曲艺等流派；山西、河南采用梆子；江西影戏则使用汉调或花鼓；湖北以汉调为主；浙江影戏用高腔、乱弹、徽调为主；台湾影戏使用潮调。过去演员多为男性，用本嗓或掐嗓塑造各类人物，中间夹以念白打诨，调动现场气氛。</p>
+	</div>
+    
+	</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+ <script>
+    
+    $(".step").click( function() {
+	$(this).addClass("active").prevAll().addClass("active");
+	$(this).nextAll().removeClass("active");
+});
+
+$(".step01").click( function() {
+	$("#line-progress").css("width", "3%");
+	$(".discovery").addClass("active").siblings().removeClass("active");
+});
+
+$(".step02").click( function() {
+	$("#line-progress").css("width", "25%");
+	$(".strategy").addClass("active").siblings().removeClass("active");
+});
+
+$(".step03").click( function() {
+	$("#line-progress").css("width", "50%");
+	$(".creative").addClass("active").siblings().removeClass("active");
+});
+
+$(".step04").click( function() {
+	$("#line-progress").css("width", "75%");
+	$(".production").addClass("active").siblings().removeClass("active");
+});
+
+$(".step05").click( function() {
+	$("#line-progress").css("width", "100%");
+	$(".analysis").addClass("active").siblings().removeClass("active");
+});
+
+ 
+    </script>
+</body>
+</html>
